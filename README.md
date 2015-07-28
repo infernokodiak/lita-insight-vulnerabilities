@@ -42,7 +42,7 @@ Modify the config.yml file with your credentials.  The specs use the ` config.us
 
 ` bundle exec rspec spec `
 
-## Troubleshooting
+## Troubleshooting and Known Issues
 
 When creating a new handler using the generator, I ran into an issue.  The resolution was that git needed to be installed.
 
@@ -51,3 +51,11 @@ sudo su -
 apt-get install git
 apt-get install vim
 ```
+
+When starting the slackbot from the main project (not the lita-insight handler), make sure you add the lita-slack and lita-insight gems in the Gemfile
+
+``` ruby
+gem 'lita-slack'
+gem "lita-insight", "0.1.0", :path => "/home/lita/workspace/lita-insight"
+```
+depending the number of vulnerabilites you have you may exceed the maximum safe payload.  In that case an error may arise:  ` /home/lita/.gems/gems/lita-slack-1.5.0/lib/lita/adapters/slack/rtm_connection.rb:106:in `safe_payload_for': Cannot send payload greater than 16000 bytes. (ArgumentError) `
