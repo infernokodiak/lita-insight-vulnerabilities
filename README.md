@@ -4,7 +4,8 @@
 
 ## Installation
 
-This project is not gem as its still in development.  But that doesn't mean you can't use it.  
+This project has not been packaged as a gem, but that doesn't mean you can't use it.
+
 * Start the [lita development environment](https://github.com/litaio/development-environment).
 * Clone the repository into your newly generated project. ` git@github.com:infernokodiak/lita-insight-vulnerabilities.git lita-insight `
 * Bundle and Start lita
@@ -58,4 +59,5 @@ When starting the slackbot from the main project (not the lita-insight handler),
 gem 'lita-slack'
 gem "lita-insight", "0.1.0", :path => "/home/lita/workspace/lita-insight"
 ```
-depending the number of vulnerabilites you have you may exceed the maximum safe payload.  In that case an error may arise:  ` /home/lita/.gems/gems/lita-slack-1.5.0/lib/lita/adapters/slack/rtm_connection.rb:106:in `safe_payload_for': Cannot send payload greater than 16000 bytes. (ArgumentError) `
+
+Depending the number of vulnerabilites you have, you may exceed the maximum safe payload defined by slack.  In that case an error will arise:  ` /home/lita/.gems/gems/lita-slack-1.5.0/lib/lita/adapters/slack/rtm_connection.rb:106:in `safe_payload_for': Cannot send payload greater than 16000 bytes. (ArgumentError) `  Limit your output.
